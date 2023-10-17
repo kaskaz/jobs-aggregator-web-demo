@@ -79,7 +79,7 @@ const JobList = ({
     <div className='flex flex-col gap-2 max-h-[100%] overflow-hidden'>
       <p className='text-xl'>{name}</p>
       <div className='flex flex-col gap-2 items-center h-[100%] overflow-y-auto py-4 border-2 rounded-md'>
-        {jobs.map(job => <JobCard job={job}/>)}
+        {jobs.map(job => <JobCard key={job.id} job={job}/>)}
       </div>
     </div>
   ); 
@@ -90,7 +90,7 @@ const JobCard = ({ job }: { job: Job }) => {
   const cMax = job.compensationMax ? `${job.compensationMax}${job.compensationCurrency}` : '?';
 
   return (
-    <div key={job.id} className='shadow-lg rounded-md w-4/5 bg-zinc-300 select-none py-2'>
+    <div className='shadow-lg rounded-md w-4/5 bg-zinc-300 select-none py-2'>
       <p>{job.title}</p>
       <p>{job.location}</p>
       <p>{job.contractType}</p>
